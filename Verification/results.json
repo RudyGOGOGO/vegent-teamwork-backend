@@ -1,0 +1,179 @@
+{
+  "date": "2026-11-03",
+  "status": "LOCAL_VERIFIED_CANDIDATE_REVIEW_GATES_OPEN",
+  "contract": "2.1-r3",
+  "artifact_sha256": "189eca9fafe3899a586821295ebf83222ead51c5831aa57fc2e47fc54e4e9553",
+  "source_and_test_tree_sha256": "63e5935217b75bbb54354a37d2b574c509a4ccce4fee3a24436353435bbaf0d2",
+  "local_regression": {
+    "tests": 112,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 77.574,
+    "command": "uv run pytest tests/unit tests/acceptance tests/teamwork tests/verification -q --disable-warnings --junitxml=work-evidence/feedback-regression.xml",
+    "warning": "Three dependency/pytest evidence-metadata warnings in the final run; no assertion failure.",
+    "modules": [
+      {
+        "module": "tests.acceptance.test_api_contract",
+        "passed": 4
+      },
+      {
+        "module": "tests.acceptance.test_migration_runner",
+        "passed": 2
+      },
+      {
+        "module": "tests.acceptance.test_mysql_identity",
+        "passed": 13
+      },
+      {
+        "module": "tests.teamwork.test_comments_and_mentions",
+        "passed": 15
+      },
+      {
+        "module": "tests.teamwork.test_context_and_dashboard",
+        "passed": 5
+      },
+      {
+        "module": "tests.teamwork.test_feedback_regressions",
+        "passed": 21
+      },
+      {
+        "module": "tests.teamwork.test_http_contract",
+        "passed": 3
+      },
+      {
+        "module": "tests.teamwork.test_identity_cascade",
+        "passed": 4
+      },
+      {
+        "module": "tests.teamwork.test_provider_and_operator",
+        "passed": 3
+      },
+      {
+        "module": "tests.teamwork.test_release_edges",
+        "passed": 6
+      },
+      {
+        "module": "tests.teamwork.test_schema_and_permissions",
+        "passed": 5
+      },
+      {
+        "module": "tests.teamwork.test_storage_and_conversion",
+        "passed": 6
+      },
+      {
+        "module": "tests.teamwork.test_work_and_lifecycle",
+        "passed": 4
+      },
+      {
+        "module": "tests.unit.test_config",
+        "passed": 1
+      },
+      {
+        "module": "tests.unit.test_security",
+        "passed": 14
+      },
+      {
+        "module": "tests.verification.test_artifact_boundary",
+        "passed": 1
+      },
+      {
+        "module": "tests.verification.test_boundaries",
+        "passed": 5
+      }
+    ],
+    "teamwork_tests": 72,
+    "identity_unit_verification_tests": 40,
+    "warnings_count": 3
+  },
+  "lint": "passed",
+  "format": "156 files checked; passed",
+  "database": {
+    "engine": "MySQL 8.4.13",
+    "fixture": "vegent_teamwork_test and vegent_identity, loopback:13316",
+    "sqlite_used": false,
+    "teamwork_orm_column_sets_match_sql": 21,
+    "migration_chain": "0007 -> tw_008; repeat upgrade verified"
+  },
+  "linux_lambda_smoke": {
+    "network_disabled": true,
+    "handler_status": 401,
+    "routes": 92,
+    "native_bcrypt": "passed",
+    "all_teamwork_modules_import": "passed",
+    "openapi_contract": "2.1-r3",
+    "native_jwt_and_crypto": "passed"
+  },
+  "reproducible_build": {
+    "sha256": "189eca9fafe3899a586821295ebf83222ead51c5831aa57fc2e47fc54e4e9553",
+    "two_builds_identical": true
+  },
+  "requirements_sha256": {
+    "vegent-teamwork-backend-design-optimization-requirements-en-2026-11-03.md": "5688da7ca0d2e3f8780aaa0ef1b17a12a895de4245f8b703bec4b1c4bc0d4266",
+    "vegent-teamwork-backend-design-request-v2-en-2026-11-03.md": "bba6ad4a8e618714e1d59048868029eb038f1710459ff98f8b020b5bdea46fae",
+    "vegent-project-context-refactor-design-request-en-2026-11-03.md": "91185887d58adcd31789c1e88d19d32d1ab5353af535604aa545085892b64835",
+    "vegent-teamwork-frontend-design-request-v2-en-2026-11-03.md": "60adbfe0054e1638ba8c2713a1dbdb3b41e5326d15589175d8d1f977c171b4b3"
+  },
+  "original_auth_archives_unchanged": true,
+  "cloud_qualification": {
+    "status": "BLOCKED_OWNER_ENVIRONMENT_REQUIRED",
+    "items": [
+      "private VPN/API/Lambda invoke restrictions",
+      "actual TLS/Secrets Manager and target MySQL support policy",
+      "live S3 signing/checksums/conditional writes/CORS/expiry/late-arrival cleanup",
+      "enterprise provider compatibility",
+      "real Lambda cold/warm/load/connection and bcrypt benchmark",
+      "frontend/local import and rollback rehearsal"
+    ]
+  },
+  "initial_broad_run": {
+    "note": "A broad pytest invocation included the deliberately fail-closed real Lambda benchmark; it remained BLOCKED without the owner adapter. An in-flight migration fixture update was corrected. The final explicit local suite passes with no skipped tests.",
+    "production_benchmark_pass_claimed": false
+  },
+  "no_implementation_placeholders": true,
+  "no_cloud_deployment": true,
+  "reviewed_candidate": "a23065fc8ffb759836aee41e621a01570bbcc9e76e571f0a75c1295076cf1a70",
+  "feedback_input_sha256": "fea29bb761acf62594fb8b3a604ce3667b3db40008ae3054aa0cd9f04d6b7a1b",
+  "local_measurements": {
+    "local_dashboard_seconds": "0.077182",
+    "local_dashboard_sql_statements": "50"
+  },
+  "measurement_scope": {
+    "database": "loopback MySQL8.4.13",
+    "roots": 31,
+    "prs": 40,
+    "requested_limit": 2,
+    "project_summaries_projected": 2,
+    "pr_views_projected": 2,
+    "single_local_observation": true,
+    "real_RDS_or_Lambda_proof": false
+  },
+  "resource_workload": "Small design documents and implementation plans; ordinary single PUT/download is primary, multipart retained compatibility.",
+  "open_owner_gates": [
+    "P0-1 actual TTL/residual-window acceptance and live issue-remove-GET-expiry",
+    "P0-5 actual ingress admission/Gateway rates-bursts-error mapping and2x pilot scale",
+    "P0-6 actual RDS/Lambda/cost12 latency-lock-connection evidence",
+    "P0-8 real worst-case cascade/rollback readiness",
+    "P1-2 actual frontend/local-core snapshot integration and acceptance",
+    "Required staging/cleanup/legacy-age values and retained-data policy",
+    "Live S3/private network/provider/CORS and operator fixture qualification"
+  ],
+  "scans": {
+    "generated_branding_and_english": "passed; unchanged requirement evidence excluded",
+    "runtime_git_credential_boundary": "passed",
+    "forbidden_dependencies": "passed",
+    "archive_embedded_credential_heuristics": "passed; parser markers are not private key bodies",
+    "lambda_package_boundary": "passed including nested vendor tests and SDK example fixtures",
+    "design_sql_exact_normalized_statements": 21,
+    "design_endpoint_rows": 63,
+    "design_test_rows": 46,
+    "markdown_fences_and_relative_links": "passed"
+  },
+  "operator_archive_smoke": {
+    "offline_locked_install": "passed",
+    "three_operator_help_commands": "passed",
+    "conversion_cursor_option": "present",
+    "offline_contract_export": "byte-identical to delivery",
+    "operator_job_executed": false
+  }
+}
